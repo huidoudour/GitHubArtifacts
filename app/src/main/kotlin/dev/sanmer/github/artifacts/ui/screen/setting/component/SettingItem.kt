@@ -53,13 +53,22 @@ fun SettingItem(
     ) {
         Text(
             text = title,
-            style = MaterialTheme.typography.titleMedium
+            style = MaterialTheme.typography.titleMedium,
+            color = if (enabled) {
+                Color.Unspecified
+            } else {
+                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+            }
         )
 
         Text(
             text = text,
             style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.outline
+            color = if (enabled) {
+                MaterialTheme.colorScheme.outline
+            } else {
+                MaterialTheme.colorScheme.outline.copy(alpha = 0.38f)
+            }
         )
     }
 }
